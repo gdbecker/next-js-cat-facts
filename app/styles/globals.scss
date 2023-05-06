@@ -1,0 +1,40 @@
+@import "../styles_variables/styles_variables.scss";
+
+/* Home Page */
+#home-page {
+  background-color: $offWhite;
+  padding: 8%;
+  /* box-shadow: $darkBlue 0px 2px 8px 0px; */
+  /* border-radius: 10px; */
+  /* margin: 5%; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CatFact Component */
+#cat-fact {
+  background-color: $darkGreen;
+  text-align: center;
+  min-height: 30vh;
+  border-radius: 10px;
+  // box-shadow: $white 0px 2px 8px 0px;
+  justify-content: center;
+  text-align: center;
+
+  position: relative;
+}
+
+.cat-image-wrapper {
+  // background-image: url('../../public/cat-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  // width: 16vh !important;
+  // height: 16vh !important;
+  border-radius: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  // position: absolute;
+}

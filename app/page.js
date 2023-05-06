@@ -1,95 +1,88 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import Link from "next/link";
+import LoadingPage from './loading';
+import CatFact from './components/CatFact';
 
 export default function Home() {
+
+  const [fact, setFact] = useState('');
+  const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  // const fetchNewFact = async () => {
+  //   // await new Promise((resolve) => setTimeout(resolve, 3000));
+  //   const data = await fetch('/api/facts');
+  //   console.log(data)
+  //   // const data = await response.json();
+  //   setFact(data.fact);
+  //   console.log(data)
+  // }
+
+  const fetchNewData = useCallback(async () => {
+    const responseFact = await fetch(
+      'https://catfact.ninja/fact', {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
+      }
+    );  
+    const dataFact = await responseFact.json();
+    setFact(dataFact.fact);
+
+    const responseImage = await fetch('/api/images');
+    const dataImage = await responseImage.json();
+    setImage(dataImage.url);
+
+    setLoading(false)
+  }, [])
+
+  // const fetchNewFact = useCallback(async () => {
+  //   const response = await fetch(
+  //     'https://catfact.ninja/fact', {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Accept": "application/json"
+  //       }
+  //     }
+  //   );  
+  //   const data = await response.json();
+  //   setFact(data.fact);
+  // }, [])
+
+  // const fetchNewImage = useCallback(async () => {
+  //   const response = await fetch('/api/images');
+  //   const data = await response.json();
+  //   setImage(data.url);
+  // }, [])
+
+  useEffect(() => {
+    import ('bootstrap/dist/js/bootstrap.min.js');
+    
+    fetchNewData();
+
+  }, [fetchNewData]);
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <div id="home-page">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3"></div>
+          <div className="col-md-6">
+            <CatFact
+              newFact={fact}
+              newImage={image}
+              fetchNewData={fetchNewData}
             />
-          </a>
+          </div>
+          <div className="col-md-3"></div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }

@@ -1,0 +1,33 @@
+/* Primary Color Pallette */
+/* Neutral Color Pallette */
+/* Home Page */
+#home-page {
+  background-color: #F0F0F0;
+  padding: 8%;
+  /* box-shadow: $darkBlue 0px 2px 8px 0px; */
+  /* border-radius: 10px; */
+  /* margin: 5%; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CatFact Component */
+#cat-fact {
+  background-color: #617A55;
+  text-align: center;
+  min-height: 30vh;
+  border-radius: 10px;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.cat-image-wrapper {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+  vertical-align: middle;
+  display: inline-block;
+}
