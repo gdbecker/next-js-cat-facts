@@ -2,5 +2,30 @@
   {
     "index": 1,
     "url": "/../public/cat-1.jpg"
+  },
+
+  {
+    "index": 2,
+    "url": "/../public/cat-2.jpg"
+  },
+
+  {
+    "index": 3,
+    "url": "/../public/cat-3.jpg"
+  },
+
+  {
+    "index": 4,
+    "url": "/../public/cat-4.jpg"
+  },
+
+  {
+    "index": 5,
+    "url": "/../public/cat-5.jpg"
+  },
+
+  {
+    "index": 6,
+    "url": "/../public/cat-6.jpg"
   }
 ]

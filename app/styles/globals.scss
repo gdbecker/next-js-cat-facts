@@ -1,12 +1,29 @@
 @import "../styles_variables/styles_variables.scss";
 
+:root {
+  background-color: $offWhite;
+}
+
+/* Loading Page */
+#loading-page {
+  background-color: $offWhite;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  min-height: 100vh;
+
+  padding-top: 8%;
+}
+
+.loading-text {
+  padding: 15px;
+}
+
 /* Home Page */
 #home-page {
   background-color: $offWhite;
   padding: 8%;
-  /* box-shadow: $darkBlue 0px 2px 8px 0px; */
-  /* border-radius: 10px; */
-  /* margin: 5%; */
   min-height: 100vh;
   align-items: center;
   justify-content: center;
@@ -16,25 +33,67 @@
 #cat-fact {
   background-color: $darkGreen;
   text-align: center;
-  min-height: 30vh;
-  border-radius: 10px;
-  // box-shadow: $white 0px 2px 8px 0px;
+  min-height: 20vh;
+  border-radius: 7px;
   justify-content: center;
+  vertical-align: middle;
   text-align: center;
 
   position: relative;
+  margin-top: 10%;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .cat-image-wrapper {
-  // background-image: url('../../public/cat-1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  width: 10vh !important;
+  height: 10vh !important;
+  border-radius: 50% !important;
+  overflow: hidden;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  margin: auto;
+}
 
-  // width: 16vh !important;
-  // height: 16vh !important;
-  border-radius: 50%;
-  vertical-align: middle;
+.fact-text {
+  font-size: 1.2rem;
+  color: $white;
   display: inline-block;
-  // position: absolute;
+  margin-bottom: 20px;
+}
+
+.divider {
+  background-color: $yellow;
+  color: $yellow;
+  height: 2px;
+}
+
+.cat-btn {
+  position: absolute;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  bottom: -14px;
+  margin: auto;
+
+  width: 8vh !important;
+  height: 8vh !important;
+
+  background-color: $yellow;
+  color: $darkGreen;
+
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none;
+  border-radius: 50%;
+}
+
+.cat-btn:hover {
+  background-color: $green;
+  color: $yellow;
 }

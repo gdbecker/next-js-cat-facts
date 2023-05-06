@@ -1,12 +1,28 @@
 /* Primary Color Pallette */
 /* Neutral Color Pallette */
+:root {
+  background-color: #F0F0F0;
+}
+
+/* Loading Page */
+#loading-page {
+  background-color: #F0F0F0;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  min-height: 100vh;
+  padding-top: 8%;
+}
+
+.loading-text {
+  padding: 15px;
+}
+
 /* Home Page */
 #home-page {
   background-color: #F0F0F0;
   padding: 8%;
-  /* box-shadow: $darkBlue 0px 2px 8px 0px; */
-  /* border-radius: 10px; */
-  /* margin: 5%; */
   min-height: 100vh;
   align-items: center;
   justify-content: center;
@@ -16,18 +32,63 @@
 #cat-fact {
   background-color: #617A55;
   text-align: center;
-  min-height: 30vh;
-  border-radius: 10px;
+  min-height: 20vh;
+  border-radius: 7px;
   justify-content: center;
+  vertical-align: middle;
   text-align: center;
   position: relative;
+  margin-top: 10%;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .cat-image-wrapper {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 50%;
-  vertical-align: middle;
+  width: 10vh !important;
+  height: 10vh !important;
+  border-radius: 50% !important;
+  overflow: hidden;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  margin: auto;
+}
+
+.fact-text {
+  font-size: 1.2rem;
+  color: #FFFFFF;
   display: inline-block;
+  margin-bottom: 20px;
+}
+
+.divider {
+  background-color: #FFF8D6;
+  color: #FFF8D6;
+  height: 2px;
+}
+
+.cat-btn {
+  position: absolute;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  bottom: -14px;
+  margin: auto;
+  width: 8vh !important;
+  height: 8vh !important;
+  background-color: #FFF8D6;
+  color: #617A55;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none;
+  border-radius: 50%;
+}
+
+.cat-btn:hover {
+  background-color: #A4D0A4;
+  color: #FFF8D6;
 }
