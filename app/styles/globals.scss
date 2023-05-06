@@ -1,7 +1,14 @@
-@import "../styles_variables/styles_variables.scss";
+@import "./styles_variables.scss";
 
-:root {
-  background-color: $offWhite;
+/* Layout */
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+  font-size: 0.8rem;
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
 }
 
 /* Loading Page */
@@ -12,12 +19,12 @@
   vertical-align: middle;
   text-align: center;
   min-height: 100vh;
-
   padding-top: 8%;
 }
 
 .loading-text {
   padding: 15px;
+  font-size: 1.4rem;
 }
 
 /* Home Page */

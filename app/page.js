@@ -5,11 +5,35 @@ import CatFact from './components/CatFact';
 
 export default function Home() {
 
-  const [fact, setFact] = useState('');
-  const [image, setImage] = useState('');
+  const [data, setData] = useState({
+    fact: '',
+    image: ''
+  });
+
+  // const [fact, setFact] = useState('');
+  // const [image, setImage] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const fetchNewData = useCallback(async () => {
+  // const fetchNewData = useCallback(async () => {
+  //   const responseFact = await fetch(
+  //     'https://catfact.ninja/fact', {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Accept": "application/json"
+  //       }
+  //     }
+  //   );  
+  //   const dataFact = await responseFact.json();
+  //   setFact(dataFact.fact);
+
+  //   const responseImage = await fetch('/api/images');
+  //   const dataImage = await responseImage.json();
+  //   setImage(dataImage.url);
+
+  //   setLoading(false)
+  // }, [])
+
+  const fetchNewData = async () => {
     const responseFact = await fetch(
       'https://catfact.ninja/fact', {
         headers: {
@@ -19,21 +43,28 @@ export default function Home() {
       }
     );  
     const dataFact = await responseFact.json();
-    setFact(dataFact.fact);
+    // setFact(dataFact.fact);
 
     const responseImage = await fetch('/api/images');
     const dataImage = await responseImage.json();
-    setImage(dataImage.url);
+    // setImage(dataImage.url);
+    setData({
+      fact: dataFact.fact,
+      image: dataImage.url
+    });
 
     setLoading(false)
-  }, [])
+  }
 
   useEffect(() => {
     import ('bootstrap/dist/js/bootstrap.min.js');
     
     fetchNewData();
 
-  }, [fetchNewData]);
+    // if (data.fact != '' && data.image != '') {
+    //   setLoading(false);
+    // }
+  }, []);
 
   if (loading) {
     return <LoadingPage />;
@@ -46,8 +77,9 @@ export default function Home() {
           <div className="col-md-3"></div>
           <div className="col-md-6">
             <CatFact
-              newFact={fact}
-              newImage={image}
+              // newFact={fact}
+              // newImage={image}
+              newData={data}
               fetchNewData={fetchNewData}
             />
           </div>

@@ -12,12 +12,12 @@ function LoadingPage() {
         </div>
         <div className="row">
           <div className="col">
-              <Image
-                alt="cat-image"
-                src='/../public/cat-loading.png'
-                width={306}
-                height={185}
-              />
+            <Image
+              alt="cat-image"
+              src='/../public/cat-loading.png'
+              width={306}
+              height={185}
+            />
           </div>
         </div>
       </div>

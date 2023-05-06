@@ -1,7 +1,14 @@
 /* Primary Color Pallette */
 /* Neutral Color Pallette */
-:root {
-  background-color: #F0F0F0;
+/* Layout */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
 
 /* Loading Page */
@@ -17,6 +24,7 @@
 
 .loading-text {
   padding: 15px;
+  font-size: 1.4rem;
 }
 
 /* Home Page */
