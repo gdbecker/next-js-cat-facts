@@ -48,7 +48,7 @@ async function CatFact({ newData, fetchNewData }) {
           </div>          
         </div>
         <div className="row mt-1 g-1">
-          <button className="cat-btn" type="button" onClick={e => onClick(e)}><FaCat></FaCat></button>
+          <button className="cat-btn" type="button" title="Get new cat fact!" onClick={e => onClick(e)}><FaCat></FaCat></button>
         </div>
       </div>
     </div>
