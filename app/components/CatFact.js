@@ -30,14 +30,14 @@ async function CatFact({ newData, fetchNewData }) {
     <div id="cat-fact">
       <div className="container">
         <div className="row mt-5">
-            <div className="cat-image-wrapper">
-              <Image
-                alt="cat-image"
-                src={newData.image}
-                layout='fill'
-                objectFit='contain'
-              />
-            </div>
+          <div className="cat-image-wrapper">
+            <Image
+              alt="cat-image"
+              src={newData.image}
+              layout='fill'
+              objectFit='contain'
+            />
+          </div>
         </div>
         <div className="row mt-3">
           <h2 className="fact-text">{newData.fact}</h2>
