@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import LoadingPage from './loading';
 import CatFact from './components/CatFact';
 
-export default function Home() {
+function Home() {
 
   const [data, setData] = useState({
     fact: '',
@@ -89,3 +89,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home;
