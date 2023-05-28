@@ -14,7 +14,6 @@ When I was looking for free APIs to play around with, I'm so glad I stumbled acr
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -120,7 +119,3 @@ As a starter developer, I want to keep growing in working as a team and learning
 - Website - [Garrett Becker]()
 - Frontend Mentor - [@gdbecker](https://www.frontendmentor.io/profile/gdbecker)
 - LinkedIn - [Garrett Becker](https://www.linkedin.com/in/garrett-becker-923b4a106/)
-
-## Acknowledgments
-
-Thank you to the Frontend Mentor team for providing all of these fantastic projects to build, and for our getting to help each other grow!

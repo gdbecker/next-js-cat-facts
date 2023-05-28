@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
 
         {children}
 
-        <div class="attribution">
+        <footer className="attribution">
           Coded by <a href="https://github.com/gdbecker/next-js-cat-facts" target="_blank">Garrett Becker</a>
-        </div>
+        </footer>
       </body>
     </html>
   )

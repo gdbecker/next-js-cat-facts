@@ -2,6 +2,12 @@
 import React from'react';
 import { FaCat } from  'react-icons/fa';
 import Image from 'next/image';
+import Cat1 from '../../public/cat-1.jpg';
+import Cat2 from '../../public/cat-2.jpg';
+import Cat3 from '../../public/cat-3.jpg';
+import Cat4 from '../../public/cat-4.jpg';
+import Cat5 from '../../public/cat-5.jpg';
+import Cat6 from '../../public/cat-6.jpg';
 
 async function CatFact({ newData, fetchNewData }) {
 
