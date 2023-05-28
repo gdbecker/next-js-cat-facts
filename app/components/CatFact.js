@@ -21,8 +21,8 @@ async function CatFact({ newData, fetchNewData }) {
         <div className="row mt-5">
           <div className="cat-image-wrapper">
             <Image
+              src="/../public/cat-1.jpg"
               alt="cat-image"
-              src={newData.image}
               layout='fill'
               objectFit='contain'
             />
