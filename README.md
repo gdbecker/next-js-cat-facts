@@ -60,19 +60,19 @@ Here are a few code samples from this project:
 ```css
 .cat-btn {
   background-color: $yellow;
-	border: 0 !important;
-	border-radius: 50%;
-	bottom: -14px;
-	box-shadow: none;
-	color: $darkGreen;
-	height: 8vh !important;
-	left: 0px;
-	margin: auto;
-	outline: none !important;
-	position: absolute;
-	right: 0px;
-	text-align: center;
-	width: 8vh !important;
+  border: 0 !important;
+  border-radius: 50%;
+  bottom: -14px;
+  box-shadow: none;
+  color: $darkGreen;
+  height: 8vh !important;
+  left: 0px;
+  margin: auto;
+  outline: none !important;
+  position: absolute;
+  right: 0px;
+  text-align: center;
+  width: 8vh !important;
 }
 
 .cat-btn:hover {
