@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         {children}
 
         <div class="attribution">
-          Coded by <a href="#">Garrett Becker</a>
+          Coded by <a href="https://github.com/gdbecker/next-js-cat-facts" target="_blank">Garrett Becker</a>
         </div>
       </body>
     </html>
