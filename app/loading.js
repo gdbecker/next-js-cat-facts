@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function LoadingPage() {
   return (
-    <div id="loading-page">
+    <main id="loading-page">
       <div className="container">
         <div className="row">
           <div className="col">
@@ -21,7 +21,7 @@ function LoadingPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

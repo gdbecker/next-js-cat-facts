@@ -1,34 +1,126 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cat Facts Next.js App
 
-## Getting Started
+When I was looking for free APIs to play around with, I'm so glad I stumbled across this cat facts API - just last year my family decided to adopt a kitten (crazy that this is our first family pet and we're all in our twenties!) and I've never thought I'd love cats as much as I do now, so I knew I wanted to make something with this API. I thought this would be a fun way to continue getting more familiar with Next.js, Bootstrap, and SASS together by adding in the main "get" call to grab a random cat fact, as well as add in a small back-end API call of my own to choose a random image for the top of the card (cat-6.jpg is our cat Poppie). I kept the design simple so I could focus more on the back-end functionality and I'm really happy with how this came out!
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Overview](#overview)
+  - [Mobile View](#mobile-view)
+  - [Desktop View](#desktop-view)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+
+### Mobile View
+
+![](./cat-facts-mobile.jpg)
+
+### Desktop View
+
+![](./cat-facts-desktop.jpg)
+
+### Links
+
+- [Live Site URL](https://cat-facts-gdbecker.netlify.app)
+
+## My process
+
+### Built with
+
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org) - React framework
+- HTML5
+- CSS
+- [SASS](https://sass-lang.com) - CSS extension language
+- Bootstrap
+- Mobile-first workflow
+- [VS Code](https://code.visualstudio.com)
+
+### What I learned
+
+
+
+At the start I approached this project in a similar way as the QR code component, but the trickiest part was getting the hover state working for the image. It needed to be either an anchor tag or a button so it would take you somewhere, but also flash the eye symbol on top of a semi-transparent cyan background so you could still see the original pic underneath. After a lot of tinkering I got it to work by splitting images between a "box wrapper" and a "box" inside, so on hover the internal div switches from using the NFT image as the background to the eye symbol, and then the outer div switches to the blue background. I like how this turned out because then anyone can modify what pics are switched and can see how it works.
+
+Here are a few code samples from this project:
+
+```html
+<div className="row mt-1 g-1">
+  <button className="cat-btn" type="button" title="Get new cat fact!" onClick={e => onClick(e)}><FaCat></FaCat></button>
+</div>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```css
+.cat-btn {
+  background-color: $yellow;
+	border: 0 !important;
+	border-radius: 50%;
+	bottom: -14px;
+	box-shadow: none;
+	color: $darkGreen;
+	height: 8vh !important;
+	left: 0px;
+	margin: auto;
+	outline: none !important;
+	position: absolute;
+	right: 0px;
+	text-align: center;
+	width: 8vh !important;
+}
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+.cat-btn:hover {
+  background-color: $green;
+  color: $yellow;
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```js
+const fetchNewData = async () => {
+  const responseFact = await fetch(
+    'https://catfact.ninja/fact', {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    }
+  );  
 
-## Learn More
+  const dataFact = await responseFact.json();
+  const responseImage = await fetch('/api/images');
+  const dataImage = await responseImage.json();
 
-To learn more about Next.js, take a look at the following resources:
+  setData({
+    fact: dataFact.fact,
+    image: dataImage.url
+  });
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  setLoading(false)
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Continued development
 
-## Deploy on Vercel
+As a starter developer, I want to keep growing in working as a team and learning how to deliver smaller packages of code at a time, such as components like this one. I thought this project was a good way to get back into React and begin doing just that!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Useful resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [CSS Formatter](http://www.lonniebest.com/FormatCSS/) - I found this helpful site when I'm feeling lazy and don't want to format my CSS code, I can have this do it for me, especially putting everything in alphabetical order.
+- [Color Hunt](https://colorhunt.co) - I love using this site to pick from color palette's professional designers put together. It helps me quickly choose a color scheme I think would work best and focus more time on building.
+
+## Author
+
+- Website - [Garrett Becker]()
+- Frontend Mentor - [@gdbecker](https://www.frontendmentor.io/profile/gdbecker)
+- LinkedIn - [Garrett Becker](https://www.linkedin.com/in/garrett-becker-923b4a106/)
+
+## Acknowledgments
+
+Thank you to the Frontend Mentor team for providing all of these fantastic projects to build, and for our getting to help each other grow!

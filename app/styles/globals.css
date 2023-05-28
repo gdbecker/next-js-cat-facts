@@ -2,9 +2,8 @@
 /* Neutral Color Pallette */
 /* Layout */
 .attribution {
-  font-size: 11px;
-  text-align: center;
   font-size: 0.8rem;
+  text-align: center;
 }
 
 .attribution a {
@@ -13,63 +12,62 @@
 
 /* Loading Page */
 #loading-page {
-  background-color: #F0F0F0;
   align-items: center;
+  background-color: #F0F0F0;
   justify-content: center;
-  vertical-align: middle;
-  text-align: center;
   min-height: 100vh;
   padding-top: 8%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .loading-text {
-  padding: 15px;
   font-size: 1.4rem;
+  padding: 15px;
 }
 
 /* Home Page */
 #home-page {
-  background-color: #F0F0F0;
-  padding: 8%;
-  min-height: 100vh;
   align-items: center;
+  background-color: #F0F0F0;
   justify-content: center;
+  min-height: 100vh;
+  padding: 8%;
 }
 
 /* CatFact Component */
 #cat-fact {
   background-color: #617A55;
-  text-align: center;
-  min-height: 20vh;
   border-radius: 7px;
   justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-  position: relative;
   margin-top: 10%;
-  padding-top: 10px;
+  min-height: 20vh;
+  padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .cat-image-wrapper {
-  width: 10vh !important;
-  height: 10vh !important;
   border-radius: 50% !important;
+  height: 10vh !important;
+  left: 0px;
+  margin: auto;
   overflow: hidden;
   position: absolute;
-  top: -40px;
-  left: 0px;
   right: 0px;
   text-align: center;
-  margin: auto;
+  top: -40px;
+  width: 10vh !important;
 }
 
 .fact-text {
-  font-size: 1.2rem;
   color: #FFFFFF;
   display: inline-block;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -80,20 +78,20 @@
 }
 
 .cat-btn {
-  position: absolute;
-  text-align: center;
-  left: 0px;
-  right: 0px;
-  bottom: -14px;
-  margin: auto;
-  width: 8vh !important;
-  height: 8vh !important;
   background-color: #FFF8D6;
-  color: #617A55;
   border: 0 !important;
-  outline: none !important;
-  box-shadow: none;
   border-radius: 50%;
+  bottom: -14px;
+  box-shadow: none;
+  color: #617A55;
+  height: 8vh !important;
+  left: 0px;
+  margin: auto;
+  outline: none !important;
+  position: absolute;
+  right: 0px;
+  text-align: center;
+  width: 8vh !important;
 }
 
 .cat-btn:hover {

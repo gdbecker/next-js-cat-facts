@@ -1,28 +1,11 @@
 'use client';
 import React from'react';
-import { useState, useEffect, useCallback } from 'react';
 import { FaCat } from  'react-icons/fa';
 import Image from 'next/image';
 
 async function CatFact({ newData, fetchNewData }) {
-  // const [fact, setFact] = useState(newFact);
-  // const [image, setImage] = useState(newImage);
 
   const onClick = async (e) => {
-    // const responseFact = await fetch(
-    //   'https://catfact.ninja/fact', {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Accept": "application/json"
-    //     }
-    //   }
-    // );  
-    // const dataFact = await responseFact.json();
-    // setFact(dataFact.fact);
-
-    // const responseImage = await fetch('/api/images');
-    // const dataImage = await responseImage.json();
-    // setImage(dataImage.url);
     fetchNewData();
   }
 
