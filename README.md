@@ -28,7 +28,7 @@ When I was looking for free APIs to play around with, I'm so glad I stumbled acr
 
 ### Links
 
-- [Live Site URL](https://cat-facts-gdbecker.netlify.app)
+- [Live Site URL](https://next-js-cat-facts.vercel.app)
 
 ## My process
 
@@ -45,9 +45,9 @@ When I was looking for free APIs to play around with, I'm so glad I stumbled acr
 
 ### What I learned
 
+For a simple concept I was surprised by the challenges that came up, but I'm thankful for them as they pushed me to persevere and keep going. Getting the design like I wanted felt great, especially the absolute positioning of the top cat image and bottom button. The trickiest part was figuring out the api route for the cat images. My goal was to pick a random pic from the six files I had loaded to pair with the random fact pulled from the public api. However once I figured out the right file path to use and got those loaded in a json file, I noticed that on deployment to Netlify or Vercel, none of the cat images were loading, even though the main public api call was. I was using file paths in my json file that didn't exist in the static version of the site. After playing around with it some more - trying out the SWR module for example - I ended up importing the json file itself to the main page and from there picking a random image from the stack to show on the card. So ultimately I was able to use the api route on my localhost, but scratched that option when deploying the app online.
 
-
-At the start I approached this project in a similar way as the QR code component, but the trickiest part was getting the hover state working for the image. It needed to be either an anchor tag or a button so it would take you somewhere, but also flash the eye symbol on top of a semi-transparent cyan background so you could still see the original pic underneath. After a lot of tinkering I got it to work by splitting images between a "box wrapper" and a "box" inside, so on hover the internal div switches from using the NFT image as the background to the eye symbol, and then the outer div switches to the blue background. I like how this turned out because then anyone can modify what pics are switched and can see how it works.
+It was challenging - I tried multiple options to load in data via my app's api 'images' route, but I unfortunately was not able to make this work on deployment. For the future I want to keep exploring Next.js's api routes and the best way to load in data that works well when building out online.
 
 Here are a few code samples from this project:
 
