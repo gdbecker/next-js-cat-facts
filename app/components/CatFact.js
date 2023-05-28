@@ -11,6 +11,22 @@ import Cat6 from '../../public/cat-6.jpg';
 
 async function CatFact({ newData, fetchNewData }) {
 
+  function pickCatPic(index) {
+    if (index == 1) {
+      return Cat1;
+    } else if (index == 2) {
+      return Cat2;
+    } else if (index == 3) {
+      return Cat3;
+    } else if (index == 4) {
+      return Cat4; 
+    } else if (index == 5) {
+      return Cat5;
+    } else if (index == 6) {
+      return Cat6;
+    }
+  }
+
   const onClick = async (e) => {
     fetchNewData();
   }
@@ -21,7 +37,7 @@ async function CatFact({ newData, fetchNewData }) {
         <div className="row mt-5">
           <div className="cat-image-wrapper">
             <Image
-              src={newData.image}
+              src={pickCatPic(newData.image)}
               alt="cat-image"
               layout='fill'
               objectFit='contain'

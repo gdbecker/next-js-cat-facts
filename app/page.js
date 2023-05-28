@@ -28,7 +28,8 @@ function Home() {
 
     setData({
       fact: dataFact.fact,
-      image: dataImage.url
+      image: dataImage.index
+      // image: dataImage.url // for localhost url paths
     });
 
     setLoading(false)
