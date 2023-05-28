@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import images from '../../../data/data.json';
+import images from '../../json/data.json';
 
 export async function GET(request) {
   var index = Math.floor(0 + Math.random() * (images.length - 1 + 1));
