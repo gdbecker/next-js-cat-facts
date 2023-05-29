@@ -1,33 +1,21 @@
 import { NextResponse } from "next/server";
-// import images from '../../json/data.json';
 import fs from 'fs'
 import path from 'path'
 
+// API route for grabbing all cat images I have
 export async function GET(request) {
-  // var index = Math.floor(0 + Math.random() * (images.length - 1 + 1));
-
+  // Subfolder that contains the cat images to randomly pick from
   const dirRelativeToPublicFolder = 'cat-img'
 
+  // Resolve the file path to look through - public is the parent, then the subfolder
   const dir = path.resolve('./public', dirRelativeToPublicFolder);
 
+  // Read cat pics file names
   const filenames = fs.readdirSync(dir);
 
+  // Create list of cat pics file names
   const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name))
 
-  // return NextResponse.json(images[index]);
+  // Return the list of images
   return NextResponse.json(images);
-
 }
-
-// export default (req, res) => {
-//   const dirRelativeToPublicFolder = 'cat-img'
-
-//   const dir = path.resolve('./public', dirRelativeToPublicFolder);
-
-//   const filenames = fs.readdirSync(dir);
-
-//   const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name))
-
-//   res.statusCode = 200
-//   res.json(images);
-// }

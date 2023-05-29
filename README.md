@@ -45,9 +45,9 @@ When I was looking for free APIs to play around with, I'm so glad I stumbled acr
 
 ### What I learned
 
-For a simple concept I was surprised by the challenges that came up, but I'm thankful for them as they pushed me to persevere and keep going. Getting the design like I wanted felt great, especially the absolute positioning of the top cat image and bottom button. The trickiest part was figuring out the api route for the cat images. My goal was to pick a random pic from the six files I had loaded to pair with the random fact pulled from the public api. However once I figured out the right file path to use and got those loaded in a json file, I noticed that on deployment to Netlify or Vercel, none of the cat images were loading, even though the main public api call was. I was using file paths in my json file that didn't exist in the static version of the site. After playing around with it some more - trying out the SWR module for example - I ended up importing the json file itself to the main page and from there picking a random image from the stack to show on the card. So ultimately I was able to use the api route on my localhost, but scratched that option when deploying the app online.
+For a simple concept I was surprised by the challenges that came up, but I'm thankful for them as they pushed me to persevere and keep going. Getting the design like I wanted felt great, especially the absolute positioning of the top cat image and bottom button. The trickiest part was figuring out the api route for the cat images. My goal was to pick a random pic from the six files I had loaded to pair with the random fact pulled from the public api. However once I figured out the right file path to use and got those loaded in a json file, I noticed that on deployment to Netlify or Vercel, none of the cat images were loading, even though the main public api call worked fine. 
 
-It was challenging - I tried multiple options to load in data via my app's api 'images' route, but I unfortunately was not able to make this work on deployment. For the future I want to keep exploring Next.js's api routes and the best way to load in data that works well when building out online.
+This was challenging for me to figure out because although what I built worked on my Mac dev environment, I needed to think about the best way to make this work upon deployment. I kept pushing myself to figure it out, explored tutorials of using a hook called 'useSWR' and rewrote my custom api route multiple times. In the end I came up with a solution I'm proud of: my cat images api route scans through what cat pics I have in the public folder (instead of updating a json data file) and the key was to use "path.resolve" when finding those images. Then I was able to keep my "await fetch" function to use with NextResponse in my api route, so ultimately this app works as I wanted! Click the button and get back a random cat fact from the public api and a random cat pic from my loaded images.
 
 Here are a few code samples from this project:
 
@@ -82,6 +82,27 @@ Here are a few code samples from this project:
 ```
 
 ```js
+// API route for grabbing all cat images I have
+export async function GET(request) {
+  // Subfolder that contains the cat images to randomly pick from
+  const dirRelativeToPublicFolder = 'cat-img'
+
+  // Resolve the file path to look through - public is the parent, then the subfolder
+  const dir = path.resolve('./public', dirRelativeToPublicFolder);
+
+  // Read cat pics file names
+  const filenames = fs.readdirSync(dir);
+
+  // Create list of cat pics file names
+  const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name))
+
+  // Return the list of images
+  return NextResponse.json(images);
+}
+```
+
+```js
+// Function for grabbing new data
 const fetchNewData = async () => {
   const responseFact = await fetch(
     'https://catfact.ninja/fact', {
@@ -93,12 +114,12 @@ const fetchNewData = async () => {
   );  
 
   const dataFact = await responseFact.json();
-  const responseImage = await fetch('/api/images');
+  const responseImage = await fetch('/api/');
   const dataImage = await responseImage.json();
 
-  setData({
+  setCatData({
     fact: dataFact.fact,
-    image: dataImage.url
+    image: dataImage
   });
 
   setLoading(false)
