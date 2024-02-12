@@ -28,7 +28,7 @@ When I was looking for free APIs to play around with, I'm so glad I stumbled acr
 
 ### Links
 
-- [Live Site URL](https://next-js-cat-facts.vercel.app)
+- [Live Site URL](https://cat-facts-gdbecker.netlify.app/)
 
 ## My process
 
