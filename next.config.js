@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  allowedDevOrigins: [
+    process.env.REPLIT_DEV_DOMAIN,
+  ].filter(Boolean),
 }
 
 module.exports = nextConfig

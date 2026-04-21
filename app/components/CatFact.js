@@ -3,7 +3,7 @@ import React from'react';
 import { FaCat } from  'react-icons/fa';
 import Image from 'next/image';
 
-async function CatFact({ newData, fetchNewData }) {
+function CatFact({ newData, fetchNewData }) {
 
   function pickCatPic(imageList) {
     var num = Math.floor(0 + Math.random() * (imageList.length - 1 + 1));
@@ -23,8 +23,8 @@ async function CatFact({ newData, fetchNewData }) {
             <Image
               src={pickCatPic(newData.image)}
               alt="cat-image"
-              layout='fill'
-              objectFit='contain'
+              fill
+              style={{ objectFit: 'contain' }}
             />
           </div>
         </div>
